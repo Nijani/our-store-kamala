@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "name": "Sunlight Soap",
+      "category": "Toiletries",
+      "price": 120,
+      "image": "/images/sunlight.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Munchee Lemon Puff",
+      "category": "Biscuits",
+      "price": 150,
+      "image": "/images/lemon-puff.jpg"
+    }
+  ]
+  
