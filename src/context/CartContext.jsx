@@ -4,12 +4,20 @@ const CartContext = createContext();
 
 export const useCart = () => useContext(CartContext);
 
-const reducer = (state, action) => {
-  // handle ADD_TO_CART, REMOVE_FROM_CART, CLEAR_CART
-};
+function cartReducer(state, action) {
+    switch (action.type) {
+      case 'ADD_TO_CART':
+        return [...state, action.payload]; // Adds the product to cart
+      case 'REMOVE_FROM_CART':
+        return state.filter(item => item.id !== action.payload);
+      default:
+        return state;
+    }
+  }
 
+// Stores and updates the cart's data
 export const CartProvider = ({ children }) => {
-  const [cart, dispatch] = useReducer(reducer, []);
+  const [cart, dispatch] = useReducer(cartReducer, []);
 
   return (
     <CartContext.Provider value={{ cart, dispatch }}>

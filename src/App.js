@@ -1,15 +1,20 @@
-// src/App.jsx
-import React from 'react';
-import CatalogPage from './pages/CatalogPage.jsx';
-import CartPage from './pages/CartPage.jsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CatalogPage from './pages/CatalogPage';
+import CartPage from './pages/CartPage';
 
 function App() {
+  const sampleProducts = [
+    { id: 1, name: 'Shampoo', price: 5 },
+    { id: 2, name: 'Toothpaste', price: 3 }
+  ];
+
   return (
-    <div>
-      <h1>My Grocery Shop</h1>
-      <CatalogPage />
-      <CartPage />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<CatalogPage products={sampleProducts} />} />
+        <Route path="/cart" element={<CartPage />} />
+      </Routes>
+    </Router>
   );
 }
 
